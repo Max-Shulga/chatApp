@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "target": "ES2023",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "es2022",
+    "types": ["node"],
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["**/*.ts", "**/*.tsx","src"],
+  "exclude": ["vite.config.ts"]
+}
