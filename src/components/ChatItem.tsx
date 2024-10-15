@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 import { ReactElement, ReactNode } from "react";
 import { useThemeContext } from "@/theme/ThemeContextProvider";
-import { ModeTypes } from "@/types/themeContext";
+import { ModeTypes } from "@/common/themeContext";
 
 type CustomBoxProps = {
   mode: ModeTypes;
@@ -22,20 +22,20 @@ const CustomBox = styled(Box)<CustomBoxProps>(({ mode }) => ({
 
 type ChatItemProps = {
   children: ReactNode;
-  className: string;
+  className?: string;
   onClick?: () => void;
 };
 
 function ChatItem({
   children,
-  className,
+  className = "",
   onClick,
 }: ChatItemProps): ReactElement {
   const { mode } = useThemeContext();
   return (
     <CustomBox
       mode={mode}
-      className={`${className} flex flex-row gap-2 items-center px-4 pl-4.5`}
+      className={`${className} flex flex-row gap-2 items-center`}
       onClick={onClick}
     >
       {children}
