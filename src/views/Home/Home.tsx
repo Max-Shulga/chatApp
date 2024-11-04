@@ -22,14 +22,15 @@ function Home(): ReactElement {
       <Container>
         <div className="flex flex-row justify-between">
           <div className="flex flex-col gap-3">
-            <h2>User:</h2>
-            <p>{user?.firstName}</p>
-            <p>{user?.lastName}</p>
-            <p>{user?.email}</p>
-            <p>{user?.status}</p>
             <Link to={RouteNames.SIGN_IN}>
               <Button>
                 <p>sigh-in</p>
+              </Button>
+            </Link>
+
+            <Link to={RouteNames.UPWORK_FEED}>
+              <Button>
+                <p>Upwork feed</p>
               </Button>
             </Link>
           </div>
