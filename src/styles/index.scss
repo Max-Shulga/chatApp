@@ -1,5 +1,6 @@
-@import "data-picker.css";
-@import "react-select.css";
+@use "data-picker.scss";
+@use "react-select.scss";
+@use "normalize.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

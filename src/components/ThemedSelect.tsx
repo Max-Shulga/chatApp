@@ -6,6 +6,7 @@ import CustomOption from "@/views/UpworkFeed/UpworkFeedTable/CustomOption";
 import CustomDropdownIndicator from "@/components/CustomDropdownIndicator";
 import { IOptionInterface } from "@/common/interfaces/dto/common/ioption.interface";
 import useClickOutside from "@/hooks/useClickOutside";
+import VirtualizedMenuList from "@/components/VirtualizedMenuList";
 
 interface ThemedSelectProps extends SelectProps<IOptionInterface, true> {
   options: IOptionInterface[];
@@ -31,7 +32,6 @@ function ThemedSelect({
   });
 
   useEffect(() => {
-    console.log(initialSelectedItems);
     if (initialSelectedItems.length === options.length) {
       setSelectedItems([ALL_OPTION, ...options]);
     }
@@ -87,6 +87,7 @@ function ThemedSelect({
           menuList: () => "custom-menu-list",
         }}
         components={{
+          MenuList: VirtualizedMenuList,
           SingleValue: ({ data }) => <span>{data.label}</span>,
           ValueContainer: () => (
             <span>{formatSelectedValue(selectedItems)}</span>
@@ -98,6 +99,7 @@ function ThemedSelect({
             return (
               <CustomOption
                 props={props}
+                first={isAllOption}
                 onClick={isAllOption ? handleAllClick : undefined}
               />
             );

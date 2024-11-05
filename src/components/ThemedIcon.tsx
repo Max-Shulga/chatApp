@@ -1,5 +1,6 @@
 import React, { cloneElement, ReactElement } from "react";
 import { useThemeContext } from "@/theme/ThemeContextProvider";
+import colors from "@/styles/colors.module.scss";
 
 type ThemedIconProps = {
   icon: ReactElement;
@@ -14,8 +15,8 @@ type ThemedIconProps = {
 function ThemedIcon({
   icon,
   className = "",
-  lightFill = "#252733",
-  darkFill = "#EBECF0",
+  lightFill = colors.lightTextPrimary,
+  darkFill = colors.darkTextPrimary,
   hoverLightFill = lightFill,
   hoverDarkFill = darkFill,
   stroke = false,

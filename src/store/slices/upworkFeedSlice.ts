@@ -24,9 +24,6 @@ const upworkFeedSlice = createSlice({
       (state, { payload }) => {
         state.items = payload.items;
         state.keywordsOptions = payload.keywordsOptions;
-        //     .filter(
-        //   (_, index) => index % 8 === 0,
-        // );
         state.scoreOptions = payload.scoreOptions;
       },
     );

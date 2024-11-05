@@ -4,6 +4,7 @@ import SwapIcon from "@/assets/icons/swapArrow.svg?react";
 import { ReactElement } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SortDirection } from "@/common/enums/common/sort-direction.enum";
+import colors from "@/styles/colors.module.scss";
 
 function SortDirectionButton(): ReactElement {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -23,10 +24,10 @@ function SortDirectionButton(): ReactElement {
     <IconButton onClick={handleToggleSortDirection}>
       <ThemedIcon
         icon={<SwapIcon />}
-        lightFill="#b8b8b8"
-        hoverLightFill="#333333"
-        darkFill="#70737a"
-        hoverDarkFill="#F6F7F8"
+        lightFill={colors.gray300}
+        hoverLightFill={colors.gray600}
+        darkFill={colors.$gray100}
+        hoverDarkFill={colors.lightBackgroundDefault}
       />
     </IconButton>
   );

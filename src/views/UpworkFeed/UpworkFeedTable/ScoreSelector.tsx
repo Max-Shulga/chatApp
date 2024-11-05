@@ -10,7 +10,6 @@ function ScoreSelector(): ReactElement {
   const { scoreOptions } = useAppSelector((state) => state.upworkFeed);
   const [searchParams, setSearchParams] = useSearchParams();
   const paramScores = searchParams.get(UpworkFeedSearchBy.Score);
-  console.log(paramScores);
   const searchParamsScores = paramScores
     ? scoreOptions.filter((keyword) => paramScores.includes(keyword.value))
     : null;

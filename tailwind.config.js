@@ -14,6 +14,11 @@ const config = {
       borderRadius: {
         2: "0.5rem",
       },
+      borderColor: {
+        light: "#ABBDE0",
+        "light-divider": "#D5D7DB",
+        "dark-divider": "#414752",
+      },
       backgroundColor: {
         gray: {
           100: "#F6F7F8",

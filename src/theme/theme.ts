@@ -1,3 +1,4 @@
+import colors from "@/styles/colors.module.scss";
 import { PaletteMode, ThemeOptions } from "@mui/material";
 
 export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
@@ -6,32 +7,32 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     ...(mode === "light"
       ? {
           background: {
-            default: "#F6F7F8",
+            default: colors.lightBackgroundDefault,
           },
           text: {
-            primary: "#252733",
+            primary: colors.lightTextPrimary,
           },
           score: {
-            red: "#FAC8D0",
-            orange: "#FAD2B4",
-            yellow: "#F0E4A8",
-            green: "#C9F0C9",
-            blue: "#C4E5F5",
+            red: colors.lightScoreRed,
+            orange: colors.lightScoreOrange,
+            yellow: colors.lightScoreYellow,
+            green: colors.lightScoreGreen,
+            blue: colors.lightScoreBlue,
           },
         }
       : {
           background: {
-            default: "#181A1F",
+            default: colors.darkBackgroundDefault,
           },
           text: {
-            primary: "#EBECF0",
+            primary: colors.darkTextPrimary,
           },
           score: {
-            red: "#7A2C39",
-            orange: "#6B3920",
-            yellow: "#705C0B",
-            green: "#2D662D",
-            blue: "#295266",
+            red: colors.darkScoreRed,
+            orange: colors.darkScoreOrange,
+            yellow: colors.darkScoreYellow,
+            green: colors.darkScoreGreen,
+            blue: colors.darkScoreBlue,
           },
         }),
   },
@@ -41,10 +42,10 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
         root: {
           ...(mode === "light"
             ? {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: colors.lightBackgroundSecond,
               }
             : {
-                backgroundColor: "#131314",
+                backgroundColor: colors.darkBackgroundSecond,
               }),
         },
       },
@@ -52,8 +53,9 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor: mode === "light" ? "#D5D7DB" : "#414752",
-          color: mode === "light" ? "#70737A" : "#B0B3B8",
+          borderColor:
+            mode === "light" ? colors.lightDivider : colors.darkDivider,
+          color: mode === "light" ? colors.gray100 : colors.gray200,
         },
       },
     },
@@ -65,27 +67,27 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
           ...(mode === "light"
             ? {
-                color: "#252733",
-                border: "2px solid #ABBDE0",
+                color: colors.lightTextPrimary,
+                border: `2px solid ${colors.lightBorder}`,
                 textTransform: "none",
-                backgroundColor: "#FFFFFF",
+                backgroundColor: colors.lightBackgroundSecond,
                 "&:hover": {
-                  backgroundColor: "#F0F5FF",
+                  backgroundColor: colors.lightHoverBg,
                 },
                 "&:active": {
-                  backgroundColor: "#ABBDE0",
+                  backgroundColor: colors.lightActiveBg,
                 },
               }
             : {
-                color: "#EBECF0",
-                backgroundColor: "#131314",
+                color: colors.darkTextPrimary,
+                backgroundColor: colors.darkBackgroundSecond,
                 textTransform: "none",
-                border: "2px solid #3760AD",
+                border: `2px solid ${colors.darkBorder}`,
                 "&:hover": {
-                  backgroundColor: "#181B29",
+                  backgroundColor: colors.darkHoverBg,
                 },
                 "&:active": {
-                  backgroundColor: "#3760AD",
+                  backgroundColor: colors.darkBorder,
                 },
               }),
         },
@@ -96,23 +98,23 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
         root: {
           ...(mode === "light"
             ? {
-                fill: "#252733",
+                fill: colors.lightTextPrimary,
                 background: "transparent",
                 "&:hover": {
-                  backgroundColor: "#F0F5FF",
+                  backgroundColor: colors.lightHoverBg,
                 },
                 "&:active": {
-                  backgroundColor: "#ABBDE0",
+                  backgroundColor: colors.lightActiveBg,
                 },
               }
             : {
-                fill: "#EBECF0",
+                fill: colors.darkTextPrimary,
                 background: "transparent",
                 "&:hover": {
-                  backgroundColor: "#181B29",
+                  backgroundColor: colors.darkHoverBg,
                 },
                 "&:active": {
-                  backgroundColor: "#3760AD",
+                  backgroundColor: colors.darkActiveBg,
                 },
               }),
         },
@@ -126,40 +128,40 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           border: "1px solid",
           ...(mode === "light"
             ? {
-                backgroundColor: "#FFFFFF",
-                borderColor: "#B0B3B8",
+                backgroundColor: colors.lightBackgroundSecond,
+                borderColor: colors.gray200,
                 "&:focus-within": {
-                  borderColor: "#0F62FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.lightBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.lightBorderSecondary}`,
                 },
                 "&:hover": {
-                  borderColor: "#0F62FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.lightBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.lightBorderSecondary}`,
                 },
                 "&:focus": {
-                  borderColor: "#0F62FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.lightBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.lightBorderSecondary}`,
 
                   outline: "none",
                 },
               }
             : {
-                borderColor: "#70737A",
-                backgroundColor: "#131314",
+                borderColor: colors.gray100,
+                backgroundColor: colors.darkBackgroundSecond,
                 "&:focus-within": {
-                  borderColor: "#5B94FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.darkBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.darkBorderSecondary}`,
                 },
                 "&:hover": {
-                  borderColor: "#5B94FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.darkBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.darkBorderSecondary}`,
                   "&:before": {
                     borderBottom: "none",
                   },
                 },
                 "&:focus": {
-                  borderColor: "#5B94FE",
-                  boxShadow: "0px 0px 0px 1px #0F62FE",
+                  borderColor: colors.darkBorderSecondary,
+                  boxShadow: `0px 0px 0px 1px ${colors.darkBorderSecondary}`,
                   outline: "none",
                 },
               }),
@@ -170,18 +172,21 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
       styleOverrides: {
         input: {
           "::placeholder": {
-            color: mode === "light" ? "#252733" : "#EBECF0",
+            color:
+              mode === "light"
+                ? colors.lightTextPrimary
+                : colors.darkTextPrimary,
           },
 
           ...(mode === "light"
             ? {
                 "&:hover": {
-                  borderColor: "#0F62FE",
+                  borderColor: colors.lightBorderSecondary,
                 },
               }
             : {
                 "&:hover": {
-                  borderColor: "#5B94FE",
+                  borderColor: colors.darkBorderSecondary,
                 },
               }),
         },
@@ -190,12 +195,12 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           ...(mode === "light"
             ? {
                 "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#0F62FE !important",
+                  borderColor: `${colors.lightBorderSecondary} !important`,
                 },
               }
             : {
                 "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#5B94FE !important",
+                  borderColor: `${colors.darkBorderSecondary} !important`,
                 },
               }),
         },
@@ -208,10 +213,10 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           borderRadius: "0.5rem",
           ...(mode === "light"
             ? {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: colors.lightBackgroundSecond,
               }
             : {
-                backgroundColor: "#131314",
+                backgroundColor: colors.darkBackgroundSecond,
               }),
         },
       },
@@ -223,10 +228,10 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           paddingBottom: "0px",
           ...(mode === "light"
             ? {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: colors.lightBackgroundSecond,
               }
             : {
-                backgroundColor: "#131314",
+                backgroundColor: colors.darkBackgroundSecond,
               }),
         },
       },
@@ -237,12 +242,12 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           ...(mode === "light"
             ? {
                 "&:hover": {
-                  backgroundColor: "#F0F5FF",
+                  backgroundColor: colors.lightHoverBg,
                 },
               }
             : {
                 "&:hover": {
-                  backgroundColor: "#181B29",
+                  backgroundColor: colors.darkHoverBg,
                 },
               }),
         },
@@ -254,10 +259,10 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           borderRadius: "0.75rem",
           ...(mode === "light"
             ? {
-                backgroundColor: "#FFFFFF",
+                backgroundColor: colors.lightBackgroundSecond,
               }
             : {
-                backgroundColor: "#131314",
+                backgroundColor: colors.darkBackgroundSecond,
               }),
         },
       },
@@ -272,12 +277,12 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           ...(mode === "light"
             ? {
                 "& .MuiTouchRipple-root": {
-                  color: "#ABBDE0",
+                  color: colors.lightBorder,
                 },
               }
             : {
                 "& .MuiTouchRipple-root": {
-                  color: "#3760AD",
+                  color: colors.darkBorder,
                 },
               }),
         },
@@ -294,26 +299,26 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           ...(mode === "light"
             ? {
                 "&:hover": {
-                  backgroundColor: "#ffffff",
+                  backgroundColor: colors.lightBackgroundSecond,
                   transition: "none",
 
-                  border: "2px solid #ABBDE0 ",
+                  border: `2px solid ${colors.lightBorder}`,
                 },
                 "&.Mui-selected": {
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #ABBDE0 !important",
+                  backgroundColor: colors.lightBackgroundSecond,
+                  border: `2px solid ${colors.lightBorder} !important`,
                 },
               }
             : {
                 "&:hover": {
-                  backgroundColor: "#131314",
+                  backgroundColor: colors.darkBackgroundSecond,
                   transition: "none",
 
-                  border: "2px solid #3760AD",
+                  border: `2px solid ${colors.darkBorder}`,
                 },
                 "&.Mui-selected": {
-                  backgroundColor: "#131314",
-                  border: "2px solid #3760AD",
+                  backgroundColor: colors.darkBackgroundSecond,
+                  border: `2px solid ${colors.darkBorder}`,
                 },
               }),
         },

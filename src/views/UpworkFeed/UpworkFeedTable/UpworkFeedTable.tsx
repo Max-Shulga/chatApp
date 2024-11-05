@@ -112,7 +112,9 @@ function UpworkFeedTable({
             <tr
               key={headerGroup.id}
               className={`border-b-2 grid grid-cols-[3fr_2fr_3fr_2fr_1fr_1fr] ${
-                mode === "light" ? "border-[#D5D7DB]" : "border-[#414752]"
+                mode === "light"
+                  ? "border-light-divider"
+                  : "border-dark-divider"
               }`}
             >
               {headerGroup.headers.map((header, index) => (
@@ -147,7 +149,9 @@ function UpworkFeedTable({
                 <td
                   key={cell.id}
                   className={`border-b py-4 px-2 pr-3 ${
-                    mode === "light" ? "border-[#D5D7DB]" : "border-[#414752]"
+                    mode === "light"
+                      ? "border-light-divider"
+                      : "border-dark-divider"
                   } ${(index === 4 || index === 5) && "text-right"}`}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

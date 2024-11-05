@@ -1,3 +1,4 @@
+@use "@/styles/colors.module.scss" as colors;
 .react-datepicker {
     font-family:"Poppins", sans-serif;
     line-height: 1.5rem;
@@ -6,7 +7,7 @@
     grid-template-rows: repeat(2, auto);
     grid-gap: 1rem;
     align-items: center;
-    color:#4D4D4D;
+    color: colors.$datepicker-text-color;
     position: relative;
     font-size: 14px;
 }
@@ -58,7 +59,7 @@
 
 .react-datepicker__day--selected {
     background-color: transparent;
-    border:2px solid #ABBDE0;
+    border:2px solid colors.$light-border
 }
 
 
@@ -74,11 +75,11 @@
     transform: translate(-50%,0);
 }
 .react-datepicker__header {
-    border-bottom: 1px solid #D7D7D7;
+    border-bottom: 1px solid colors.$datepicker-border-color;
 }
 .disable-date.disable-date {
     cursor: default;
-    color: #a0a3aa
+    color: colors.$datepicker-disabled-color
 }
 .disable-date:hover.disable-date:hover {
 border: none;

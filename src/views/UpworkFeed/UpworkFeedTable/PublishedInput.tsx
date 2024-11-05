@@ -11,6 +11,7 @@ import { UpworkFeedSearchBy } from "@/common/enums/upwork-feed/upwork-feed-searc
 import SortDirectionButton from "@/views/UpworkFeed/UpworkFeedTable/TableFooter/SortDirectionButton";
 import getAbbreviatedWeekday from "@/utils/getAbbreviatedWeekday";
 import formatDateRange from "@/utils/formatDateRange";
+import colors from "@/styles/colors.module.scss";
 
 registerLocale("enGB", enGB);
 
@@ -82,23 +83,23 @@ function PublishedInput(): ReactElement {
         }`}
         dayClassName={(date) =>
           "w-10 h-10 flex cursor-pointer items-center justify-center" +
-          " rounded-2 hover:border-2 hover:border-[#ABBDE0]" +
+          " rounded-2 hover:border-2 hover:border-light" +
           (isFutureDate(date) && " disable-date") +
           (isDateSelected(date)
-            ? " border-2 border-[#ABBDE0]"
-            : " hover:border-2 hover:border-[#ABBDE0]")
+            ? " border-2 border-light"
+            : " hover:border-2 hover:border-light")
         }
         previousMonthButtonLabel={
           <ThemedIcon
             icon={<ArrowIcon />}
-            lightFill="#333333"
+            lightFill={colors.gray600}
             className="transform rotate-90"
           />
         }
         nextMonthButtonLabel={
           <ThemedIcon
             icon={<ArrowIcon />}
-            lightFill="#333333"
+            lightFill={colors.gray600}
             className="transform -rotate-90"
           />
         }

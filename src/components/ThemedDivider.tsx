@@ -1,12 +1,14 @@
 import { ReactElement, ReactNode } from "react";
 import { Divider, DividerProps, styled } from "@mui/material";
+import colors from "@/styles/colors.module.scss";
 
 type CustomBoxProps = {
   children: ReactNode;
 } & DividerProps;
 
 const CustomBox = styled(Divider)<CustomBoxProps>(({ theme }) => ({
-  color: theme.palette.mode === "light" ? "#D5D7DB" : "#414752",
+  color:
+    theme.palette.mode === "light" ? colors.lightDivider : colors.darkDivider,
 }));
 type ThemedDividerProps = {
   children?: ReactNode;

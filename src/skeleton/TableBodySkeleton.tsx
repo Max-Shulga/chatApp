@@ -13,7 +13,7 @@ function TableBodySkeleton(): ReactElement {
           <span
             key={index}
             className={`h-[50px] w-full border-b py-4 px-2 pr-3 ${
-              mode === "light" ? "border-[#D5D7DB]" : "border-[#414752]"
+              mode === "light" ? "border-light-divider" : "border-dark-divider"
             } animate-pulse`}
           ></span>
         ))}

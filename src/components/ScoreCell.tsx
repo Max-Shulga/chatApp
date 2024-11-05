@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from "react";
 import { Box, Palette, styled } from "@mui/material";
+import colors from "@/styles/colors.module.scss";
 
 const getBgColorByScore = (score: number): keyof Palette["score"] => {
   if (score < 20) return "red";
@@ -15,7 +16,10 @@ type ThemedBoxProps = {
 };
 
 const ThemedBox = styled(Box)<ThemedBoxProps>(({ theme, score }) => ({
-  color: theme.palette.mode === "light" ? "#0E0E0F" : "#FFFFFF",
+  color:
+    theme.palette.mode === "light"
+      ? colors.lightTextSecondary
+      : colors.darkTextSecondary,
   backgroundColor: theme.palette.score[getBgColorByScore(score)],
 }));
 

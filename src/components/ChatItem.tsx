@@ -1,5 +1,6 @@
 import { Box, styled } from "@mui/material";
 import { ReactElement, ReactNode } from "react";
+import colors from "@/styles/colors.module.scss";
 
 type CustomBoxProps = {
   children: ReactNode;
@@ -7,13 +8,23 @@ type CustomBoxProps = {
 };
 
 const CustomBox = styled(Box)<CustomBoxProps>(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "light" ? "#FFFFFF" : "#131314",
-  color: theme.palette.mode === "light" ? "#252733" : "#EBECF0",
+  backgroundColor:
+    theme.palette.mode === "light"
+      ? colors.lightBackgroundSecond
+      : colors.darkBackgroundSecond,
+  color:
+    theme.palette.mode === "light"
+      ? colors.lightTextPrimary
+      : colors.darkTextPrimary,
   "&:hover": {
-    backgroundColor: theme.palette.mode === "light" ? "#F0F5FF" : "#181B29",
+    backgroundColor:
+      theme.palette.mode === "light" ? colors.lightHoverBg : colors.darkHoverBg,
   },
   "&:active": {
-    backgroundColor: theme.palette.mode === "light" ? "#EBECF0" : "#252733",
+    backgroundColor:
+      theme.palette.mode === "light"
+        ? colors.darkTextPrimary
+        : colors.lightTextPrimary,
   },
 }));
 

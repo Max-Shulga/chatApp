@@ -1,12 +1,19 @@
 import { ReactElement, ReactNode } from "react";
 import { Box, styled } from "@mui/material";
+import colors from "@/styles/colors.module.scss";
 
 type ThemedBoxProps = {
   children: ReactNode;
 };
 const ThemedBox = styled(Box)<ThemedBoxProps>(({ theme }) => ({
-  color: theme.palette.mode === "light" ? "#0E0E0F" : "#FFFFFF",
-  backgroundColor: theme.palette.mode === "light" ? "#EBECF0" : "#252733",
+  color:
+    theme.palette.mode === "light"
+      ? colors.lightTextSecondary
+      : colors.darkTextSecondary,
+  backgroundColor:
+    theme.palette.mode === "light"
+      ? colors.darkTextPrimary
+      : colors.lightTextPrimary,
 }));
 
 type KeywordsCellProps = {

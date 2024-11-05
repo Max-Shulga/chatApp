@@ -8,6 +8,7 @@ import WarningIcon from "@/assets/icons/warning.svg?react";
 import ErrorIcon from "@/assets/icons/error.svg?react";
 import SuccessIcon from "@/assets/icons/success.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
+import colors from "@/styles/colors.module.scss";
 
 type CustomBoxProps = {
   mode: ModeTypes;
@@ -19,13 +20,13 @@ type CustomBoxProps = {
 const getBgColor = (variant: IChatStatus, mode: ModeTypes): string => {
   switch (variant) {
     case "info":
-      return mode === "light" ? "#DCEDF5" : "#2B373D";
+      return mode === "light" ? colors.lightInfoBg : colors.darkInfoBg;
     case "warning":
-      return mode === "light" ? "#FAE9C8" : "#4D4536";
+      return mode === "light" ? colors.lightWarningBg : colors.darkWarningBg;
     case "error":
-      return mode === "light" ? "#FAE1E5" : "#3D2B2E";
+      return mode === "light" ? colors.lightErrorBg : colors.darkErrorBg;
     case "success":
-      return mode === "light" ? "#DCF2DC" : "#2B3D2B";
+      return mode === "light" ? colors.lightSuccessBg : colors.darkSuccessBg;
   }
 };
 
@@ -34,32 +35,32 @@ const getIcon = (variant: IChatStatus): ReactElement => {
     case "info":
       return (
         <ThemedIcon
-          lightFill="#1F7099"
-          darkFill="#52A3CC"
+          lightFill={colors.lightInfoIconFill}
+          darkFill={colors.darkInfoIconFill}
           icon={<InfoIcon />}
         />
       );
     case "warning":
       return (
         <ThemedIcon
-          lightFill="#F9902D"
-          darkFill="#F9AC64"
+          lightFill={colors.lightWarningIconFill}
+          darkFill={colors.darkWarningIconFill}
           icon={<WarningIcon />}
         />
       );
     case "error":
       return (
         <ThemedIcon
-          lightFill="#CC0022"
-          darkFill="#CC6677"
+          lightFill={colors.lightErrorIconFill}
+          darkFill={colors.darkErrorIconFill}
           icon={<ErrorIcon />}
         />
       );
     case "success":
       return (
         <ThemedIcon
-          lightFill="#187A18"
-          darkFill="#57AD57"
+          lightFill={colors.lightSuccessIconFill}
+          darkFill={colors.darkSuccessIconFill}
           icon={<SuccessIcon />}
         />
       );
@@ -68,7 +69,10 @@ const getIcon = (variant: IChatStatus): ReactElement => {
 
 const CustomBox = styled(Box)(({ variant, mode }: CustomBoxProps) => ({
   backgroundColor: getBgColor(variant, mode),
-  color: mode === "light" ? "#131314" : "#FFFFFF",
+  color:
+    mode === "light"
+      ? colors.darkBackgroundSecond
+      : colors.lightBackgroundSecond,
 }));
 
 type ChatStatusItemProps = {
