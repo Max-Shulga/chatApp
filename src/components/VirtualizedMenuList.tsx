@@ -12,26 +12,29 @@ type VirtualizedMenuListProps<Option, IsMulti extends boolean> = MenuListProps<
 function VirtualizedMenuList<Option, IsMulti extends boolean>(
   props: VirtualizedMenuListProps<Option, IsMulti>,
 ): ReactElement {
-  const { options, children, maxHeight, getValue } = props;
+  const { options, children, maxHeight = 350, getValue } = props;
   const [value] = getValue();
-  const initialOffset = options.indexOf(value) * 48;
-
+  const initialOffset = options.indexOf(value) * 35;
   const childrenArray = React.Children.toArray(children);
+
+  const Row = ({
+    index,
+    style,
+  }: {
+    index: number;
+    style: React.CSSProperties;
+  }): ReactNode => <div style={style}>{childrenArray[index]}</div>;
 
   return (
     <List
       height={maxHeight}
       itemCount={childrenArray.length}
-      itemSize={35}
+      itemSize={52}
       initialScrollOffset={initialOffset}
       width="100%"
       className="menu-container first:h-[350px]"
     >
-      {({ index }) => (
-        <div className="relative text-sm font-medium">
-          {childrenArray[index]}
-        </div>
-      )}
+      {Row}
     </List>
   );
 }
