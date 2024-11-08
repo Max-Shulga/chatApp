@@ -1,6 +1,5 @@
 import { ReactElement, useEffect } from "react";
 import { useUpworkFeedsQuery } from "@/store/api";
-import UpworkFeedHeader from "@/views/UpworkFeed/UpworkFeedHeader";
 import RSSRefreshBar from "@/views/UpworkFeed/RSSRefreshBar/RSSRefreshBar";
 import UpworkFeedTable from "@/views/UpworkFeed/UpworkFeedTable/UpworkFeedTable";
 import useSearchParameters from "@/hooks/useSearchParameters";
@@ -25,9 +24,9 @@ function UpworkFeed(): ReactElement {
     sortDirection,
     refetch,
   ]);
+
   return (
     <section className="w-full">
-      <UpworkFeedHeader />
       <RSSRefreshBar refetch={refetch} />
       <UpworkFeedTable isFetching={isFetching} isLoaded={isLoading} />
     </section>

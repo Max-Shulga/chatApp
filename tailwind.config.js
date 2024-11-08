@@ -14,10 +14,11 @@ const config = {
       borderRadius: {
         2: "0.5rem",
       },
+
       borderColor: {
         light: "#ABBDE0",
-        "light-divider": "#D5D7DB",
-        "dark-divider": "#414752",
+        "gray-200": "#D5D7DB",
+        "gray-800": "#414752",
       },
       backgroundColor: {
         gray: {
@@ -25,6 +26,9 @@ const config = {
         },
         black: {
           100: "#131314",
+        },
+        blue: {
+          500: "#0F62FE",
         },
       },
       boxShadow: {
@@ -36,8 +40,14 @@ const config = {
         "dark-gradient":
           "radial-gradient(circle at 425.781px 523px, #2A1980, #004080 59%, #005580 93%)",
       },
-      color: {
+      textColor: {
+        "grays-300": "#70737A",
+        "grays-500": "#4D4D4D",
         "grays-700": "#414752",
+        "blue-500": "#0F62FE",
+      },
+      maxHeight: {
+        78: "19.5rem",
       },
     },
   },

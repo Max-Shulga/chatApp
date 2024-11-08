@@ -30,7 +30,7 @@ function ScoreCell({ score }: ScoreCellType): ReactElement {
   return (
     <ThemedBox
       score={score}
-      className="rounded-[20px]  px-2 flex flex-row justify-center w-fit items-center"
+      className="rounded-[20px]  px-2 py-0.5 flex flex-row justify-center w-fit items-center"
     >
       <div>{score}</div>
     </ThemedBox>
