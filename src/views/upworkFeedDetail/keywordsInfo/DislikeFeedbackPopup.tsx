@@ -47,7 +47,7 @@ function DislikeFeedbackPopup({
               disableUnderline: true,
             },
           }}
-          {...register("email", {
+          {...register("comment", {
             required: {
               value: true,
               message: "This field is required",

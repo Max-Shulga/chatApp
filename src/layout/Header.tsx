@@ -3,12 +3,17 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { IconButton } from "@mui/material";
 import ThemedIcon from "@/components/ThemedIcon";
 import HideSideBarIcon from "@/assets/icons/backArrow.svg?react";
+import MenuIcon from "@/assets/icons/menu.svg?react";
 
-function Header(): ReactElement {
+type HeaderProps = {
+  isOpen: boolean;
+  onClick: () => void;
+};
+function Header({ isOpen, onClick }: HeaderProps): ReactElement {
   return (
     <header className="flex flex-row justify-between px-5 py-6">
-      <IconButton>
-        <ThemedIcon icon={<HideSideBarIcon />} />
+      <IconButton onClick={onClick}>
+        <ThemedIcon icon={isOpen ? <HideSideBarIcon /> : <MenuIcon />} />
       </IconButton>
       <ThemeToggle />
     </header>
