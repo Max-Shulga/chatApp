@@ -11,7 +11,7 @@ function ProjectInfo(): ReactElement {
   );
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleContainerHeight = (): void => {
+  const toggleExpand = (): void => {
     setIsExpanded((prev) => !prev);
   };
 
@@ -28,13 +28,19 @@ function ProjectInfo(): ReactElement {
         </h4>
       </div>
       <div
-        className={`transition-all duration-300 overflow-hidden mt-2  ${
-          isExpanded ? "" : "line-clamp-6"
+        className={`transition-all duration-500 overflow-hidden mt-2 ${
+          isExpanded ? "max-h-screen" : "max-h-36 h-36"
         }`}
       >
-        <p>{description}</p>
+        <p
+          className={`transition-all duration-300 ${
+            isExpanded ? "" : "line-clamp-6"
+          }`}
+        >
+          {description}
+        </p>
       </div>
-      <ToggleButton onClick={toggleContainerHeight} isExpanded={isExpanded} />
+      <ToggleButton onClick={toggleExpand} isExpanded={isExpanded} />
     </FeedItemContainer>
   );
 }

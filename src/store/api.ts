@@ -148,4 +148,5 @@ export const {
   useWhoAmIQuery,
   useUpworkFeedsQuery,
   useUpworkFeedDetailQuery,
+  useUpdateUpworkFeedMutation,
 } = appApi;
