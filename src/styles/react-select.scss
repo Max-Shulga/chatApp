@@ -1,0 +1,80 @@
+@use "@/styles/colors.module.scss" as colors;
+
+.custom-control.custom-control {
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  height: 56px;
+}
+
+.custom-separator.custom-separator {
+  display: none;
+}
+
+.custom-multiValue.custom-multiValue {
+  display: none;
+}
+
+.custom-control-light.custom-control-light {
+  background: colors.$light-background-second;
+  color: colors.$light-text-primary;
+  border: 1px solid colors.$gray-200
+}
+
+.custom-control-light.custom-control-light:hover {
+  background: colors.$light-background-second;
+  border: 1px solid colors.$light-border-secondary
+}
+
+.custom-control-light.custom-control-light:focus {
+  background: colors.$light-background-second;
+  border-color: colors.$light-border-secondary
+}
+
+.custom-control-dark.custom-control-dark {
+  background: colors.$dark-background-second;
+  color: colors.$dark-text-primary;
+  border: 1px solid colors.$gray-100;
+}
+
+.custom-control-dark.custom-control-dark:hover {
+  border-color: colors.$dark-border-secondary;
+}
+
+.custom-control-dark.custom-control-dark:focus {
+  border-color: colors.$dark-border-secondary;
+}
+
+.custom-menu.custom-menu {
+  border-radius: 0.75rem;
+  border: 1px solid;
+  z-index: 11;
+}
+
+.custom-menu-light.custom-menu-light {
+  background: colors.$light-background-second;
+  border-color: colors.$light-divider;
+  color: colors.$light-text-secondary;
+}
+
+.custom-menu-light.custom-menu-light {
+  background: colors.$light-background-second;
+  border-color: colors.$light-divider;
+  color: colors.$light-text-secondary
+}
+
+.custom-menu-dark.custom-menu-dark {
+  background: colors.$dark-background-second;
+  border-color: colors.$gray-100;
+  color: colors.$light-background-second
+}
+
+.menu-container > div > div:first-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background-color: colors.$dark-text-primary;
+}

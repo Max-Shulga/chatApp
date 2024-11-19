@@ -11,6 +11,8 @@ import { ILoginRequestDTO } from "@/common/interfaces/dto/auth/iadmin-login-requ
 import { IAccountDTO } from "@/common/interfaces/dto/account/iaccount.interface";
 import { RefreshTokenResponse } from "@/common/interfaces/dto/auth/irefresh-token-response.interface";
 import RoutesNames from "@/routes/routes-names";
+import { IUpworkResponseListFeedsDto } from "@/common/interfaces/dto/upwork-feed/iupwork-response-list-feeds.dto";
+import IGetAllUpworkFeedCombineRequest from "@/common/interfaces/dto/upwork-feed/iget-all-upwork-feed-request-combine.interface";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: api.baseURL,
@@ -63,6 +65,7 @@ const baseQueryWithReAuth: BaseQueryFn<
   }
   return result;
 };
+
 export const appApi = createApi({
   baseQuery: baseQueryWithReAuth,
   endpoints: (builder) => ({
@@ -93,7 +96,27 @@ export const appApi = createApi({
         return response.data.account;
       },
     }),
+    upworkFeeds: builder.query<
+      IUpworkResponseListFeedsDto,
+      IGetAllUpworkFeedCombineRequest
+    >({
+      query: (params) => ({
+        url: "/upwork-feeds/get-feeds",
+        method: "POST",
+        body: {
+          pageSize: params.pageSize,
+          pageNumber: params.pageNumber,
+          searchParameters: params.searchParameters,
+          sortDirection: params.sortDirection,
+          sortBy: params.sortBy,
+        },
+      }),
+      transformResponse: (response: { data: IUpworkResponseListFeedsDto }) => {
+        return response.data;
+      },
+    }),
   }),
 });
 
-export const { useSignInMutation, useWhoAmIQuery } = appApi;
+export const { useSignInMutation, useWhoAmIQuery, useUpworkFeedsQuery } =
+  appApi;

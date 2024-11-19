@@ -11,15 +11,33 @@ const config = {
       spacing: {
         5.5: "1.375rem",
       },
-
       borderRadius: {
         2: "0.5rem",
+      },
+      borderColor: {
+        light: "#ABBDE0",
+        "light-divider": "#D5D7DB",
+        "dark-divider": "#414752",
+      },
+      backgroundColor: {
+        gray: {
+          100: "#F6F7F8",
+        },
+        black: {
+          100: "#131314",
+        },
+      },
+      boxShadow: {
+        drop: "0px 4px 16px -2px #00000029",
       },
       backgroundImage: {
         "light-gradient":
           "radial-gradient(circle at 50% 50%, #E5E0FE, #CBE5FE 59%, #B8F3FF 93%)",
         "dark-gradient":
           "radial-gradient(circle at 425.781px 523px, #2A1980, #004080 59%, #005580 93%)",
+      },
+      color: {
+        "grays-700": "#414752",
       },
     },
   },

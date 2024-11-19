@@ -1,14 +1,13 @@
 /// <reference types="vite-plugin-svgr/client" />
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "normalize.css";
-import "./styles/index.css";
+import "@/styles/index.scss";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { Provider } from "react-redux";
-import queryClient from "./store/queryClient";
+import queryClient from "@/store/queryClient";
 import store from "@/store/store";
-import App from "@/App";
+import { Provider } from "react-redux";
 import { ThemeContextProvider } from "@/theme/ThemeContextProvider";
+import App from "@/App";
 
 function renderApp(): void {
   createRoot(document.getElementById("root")!).render(
