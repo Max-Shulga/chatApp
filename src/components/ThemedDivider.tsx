@@ -7,8 +7,7 @@ type CustomBoxProps = {
 } & DividerProps;
 
 const CustomBox = styled(Divider)<CustomBoxProps>(({ theme }) => ({
-  color:
-    theme.palette.mode === "light" ? colors.lightDivider : colors.darkDivider,
+  color: theme.palette.mode === "light" ? colors.gray50 : colors.gray800,
 }));
 type ThemedDividerProps = {
   children?: ReactNode;

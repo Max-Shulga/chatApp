@@ -16,16 +16,6 @@ const CustomBox = styled(Box)<CustomBoxProps>(({ theme }) => ({
     theme.palette.mode === "light"
       ? colors.lightTextPrimary
       : colors.darkTextPrimary,
-  "&:hover": {
-    backgroundColor:
-      theme.palette.mode === "light" ? colors.lightHoverBg : colors.darkHoverBg,
-  },
-  "&:active": {
-    backgroundColor:
-      theme.palette.mode === "light"
-        ? colors.darkTextPrimary
-        : colors.lightTextPrimary,
-  },
 }));
 
 type ChatItemProps = {
@@ -34,18 +24,18 @@ type ChatItemProps = {
   onClick?: () => void;
 };
 
-function ChatItem({
+function StyledContainer({
   children,
   className = "",
   onClick,
 }: ChatItemProps): ReactElement {
   return (
     <CustomBox
-      className={`${className} flex flex-row gap-2 items-center`}
+      className={`${className} flex flex-row gap-2 items-center w-fit`}
       onClick={onClick}
     >
       {children}
     </CustomBox>
   );
 }
-export default ChatItem;
+export default StyledContainer;

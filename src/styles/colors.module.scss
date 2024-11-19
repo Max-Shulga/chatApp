@@ -7,7 +7,6 @@ $light-score-orange: #FAD2B4;
 $light-score-yellow: #F0E4A8;
 $light-score-green: #C9F0C9;
 $light-score-blue: #C4E5F5;
-$light-divider: #D5D7DB;
 $light-border: #ABBDE0;
 $light-border-secondary: #0F62FE;
 $light-hover-bg: #F0F5FF;
@@ -31,7 +30,6 @@ $dark-score-orange: #6B3920;
 $dark-score-yellow: #705C0B;
 $dark-score-green: #2D662D;
 $dark-score-blue: #295266;
-$dark-divider: #414752;
 $dark-border: #3760AD;
 $dark-border-secondary:#5B94FE;
 $dark-hover-bg: #181B29;
@@ -46,15 +44,19 @@ $dark-warning-bg: #4D4536;
 $dark-error-bg: #3D2B2E;
 $dark-success-bg: #2B3D2B;
 
+$gray-50: #D5D7DB;
 $gray-100: #70737A;
 $gray-200: #B0B3B8;
 $gray-300: #b8b8b8;
+$gray-400: #8A8D94;
 $gray-600: #333333;
+$gray-800: #414752;
 
 $datepicker-text-color: #4D4D4D;
 $datepicker-border-color: #D7D7D7;
 $datepicker-disabled-color: #a0a3aa;
 $datepicker-selected-border-color: $light-border;
+$blue-box-shadow:#0F62FE66;
 
 :export {
   lightBackgroundDefault: $light-background-default;
@@ -66,7 +68,6 @@ $datepicker-selected-border-color: $light-border;
   lightScoreYellow: $light-score-yellow;
   lightScoreGreen: $light-score-green;
   lightScoreBlue: $light-score-blue;
-  lightDivider: $light-divider;
   lightBorder: $light-border;
   lightBorderSecondary:$light-border-secondary;
   lightHoverBg: $light-hover-bg;
@@ -90,7 +91,6 @@ $datepicker-selected-border-color: $light-border;
   darkScoreYellow: $dark-score-yellow;
   darkScoreGreen: $dark-score-green;
   darkScoreBlue: $dark-score-blue;
-  darkDivider: $dark-divider;
   darkBorder: $dark-border;
   darkBorderSecondary:$dark-border-secondary;
   darkHoverBg: $dark-hover-bg;
@@ -104,9 +104,14 @@ $datepicker-selected-border-color: $light-border;
   darkWarningIconFill: $dark-warning-icon-fill;
   darkErrorIconFill: $dark-error-icon-fill;
   darkSuccessIconFill: $dark-success-icon-fill;
+  gray50: $gray-50;
 
   gray100: $gray-100;
   gray200: $gray-200;
   gray300: $gray-300;
+  gray400: $gray-400;
   gray600: $gray-600;
+  gray800: $gray-800;
+
+  blueBoxShadow: $blue-box-shadow;
 }

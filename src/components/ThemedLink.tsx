@@ -26,7 +26,7 @@ function ThemedLink({
   to,
 }: ThemedLinkProps): ReactElement {
   return (
-    <CustomBox to={to} className={className} target="_blank">
+    <CustomBox to={to} className={className}>
       {children}
     </CustomBox>
   );

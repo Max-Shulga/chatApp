@@ -13,6 +13,9 @@ import { RefreshTokenResponse } from "@/common/interfaces/dto/auth/irefresh-toke
 import RoutesNames from "@/routes/routes-names";
 import { IUpworkResponseListFeedsDto } from "@/common/interfaces/dto/upwork-feed/iupwork-response-list-feeds.dto";
 import IGetAllUpworkFeedCombineRequest from "@/common/interfaces/dto/upwork-feed/iget-all-upwork-feed-request-combine.interface";
+import { IGetOneUpworkFeedItem } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-one-item-dto-ts";
+import { IUpworkFeedDetailItemDTO } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-detail-item.dto";
+import { IUpdateUpworkFeedDtoWithFeedId } from "@/common/interfaces/dto/upwork-feed/iupdate-upwork-feed.dto";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: api.baseURL,
@@ -115,8 +118,35 @@ export const appApi = createApi({
         return response.data;
       },
     }),
+    upworkFeedDetail: builder.query<
+      IUpworkFeedDetailItemDTO,
+      IGetOneUpworkFeedItem
+    >({
+      query: (params) => ({
+        url: `/upwork-feeds/${params.feedId}`,
+        method: "GET",
+      }),
+      transformResponse: (response: { data: IUpworkFeedDetailItemDTO }) => {
+        return response.data;
+      },
+    }),
+    updateUpworkFeed: builder.mutation<void, IUpdateUpworkFeedDtoWithFeedId>({
+      query: ({ feedId, matchedBlogs, matchedCases }) => ({
+        url: `/upwork-feeds/${feedId}`,
+        method: "PUT",
+        body: {
+          matchedBlogs,
+          matchedCases,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useSignInMutation, useWhoAmIQuery, useUpworkFeedsQuery } =
-  appApi;
+export const {
+  useSignInMutation,
+  useWhoAmIQuery,
+  useUpworkFeedsQuery,
+  useUpworkFeedDetailQuery,
+  useUpdateUpworkFeedMutation,
+} = appApi;

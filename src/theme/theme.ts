@@ -53,8 +53,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     MuiDivider: {
       styleOverrides: {
         root: {
-          borderColor:
-            mode === "light" ? colors.lightDivider : colors.darkDivider,
+          borderColor: mode === "light" ? colors.gray50 : colors.gray800,
           color: mode === "light" ? colors.gray100 : colors.gray200,
         },
       },
@@ -321,6 +320,54 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
                   border: `2px solid ${colors.darkBorder}`,
                 },
               }),
+        },
+      },
+    },
+    MuiFilledInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: "8px",
+          border: "1px solid",
+          ...(mode === "light"
+            ? {
+                backgroundColor: colors.lightBackgroundSecond,
+                borderColor: colors.gray50,
+                "&:hover": {
+                  borderColor: colors.lightBorderSecondary,
+                  backgroundColor: colors.lightBackgroundSecond,
+                  boxShadow: `0px 0px 0px 1px ${colors.lightBorderSecondary}`,
+                },
+                "&.Mui-focused": {
+                  borderColor: colors.lightBorderSecondary,
+                  backgroundColor: colors.lightBackgroundSecond,
+                  boxShadow: `0px 0px 0px 1px ${colors.lightBorderSecondary}`,
+                },
+              }
+            : {
+                backgroundColor: colors.darkBackgroundSecond,
+                borderColor: colors.gray800,
+                "&:hover": {
+                  borderColor: colors.darkBorderSecondary,
+                  backgroundColor: colors.darkBackgroundSecond,
+                  boxShadow: `0px 0px 0px 1px ${colors.darkBorderSecondary}`,
+                },
+                "&.Mui-focused": {
+                  borderColor: colors.darkBorderSecondary,
+                  backgroundColor: colors.darkBackgroundSecond,
+                  boxShadow: `0px 0px 0px 1px ${colors.darkBorderSecondary}`,
+                },
+              }),
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          transition: "all 0.3 easy",
+          color: colors.gray400,
+          "&.Mui-focused": {
+            color: colors.gray100,
+          },
         },
       },
     },
