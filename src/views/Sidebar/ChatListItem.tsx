@@ -9,7 +9,7 @@ function ChatListItem({ name, id }: IChatItem): ReactElement {
   return (
     <HoverEffectBox className="rounded-2 px-4 py-2">
       <div className="flex flex-row items-center w-full justify-between ">
-        <Link to="" className="w-full truncate text-left ">
+        <Link to={`chat/${id}`} className="w-full truncate text-left ">
           <p className=" p-r-3">{name}</p>
         </Link>
         <ChatListIcon chatId={id} name={name} />

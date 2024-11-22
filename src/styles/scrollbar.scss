@@ -1,0 +1,21 @@
+@use "@/styles/colors.module.scss" as colors;
+
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background:none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: colors.$gray-200;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+

@@ -22,7 +22,7 @@ function ChatListIcon({ chatId, name }: ChatListIconProps): ReactElement {
   let handleClick = (): void => {};
 
   switch (true) {
-    case location.pathname.startsWith(`/${RouteNames.CHAT_LIST}`):
+    case location.pathname.startsWith(`/${RouteNames.CHAT}`):
       icon = <TrashIcon />;
       handleClick = (): void => {
         deleteChat({ chatId: chatId });
@@ -38,7 +38,7 @@ function ChatListIcon({ chatId, name }: ChatListIconProps): ReactElement {
   }
   return (
     <div className="relative pl-2">
-      <IconButton onClick={handleClick}>
+      <IconButton onClick={handleClick} className={"w-6 h-6"}>
         <ThemedIcon icon={icon} className="flex-shrink-0" />
       </IconButton>
       {isPopupVisible && (

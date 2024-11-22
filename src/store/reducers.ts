@@ -4,6 +4,7 @@ import { appApi } from "@/store/api";
 import upworkFeedSlice from "@/store/slices/upworkFeedSlice";
 import upworkFeedDetailSlice from "@/store/slices/upworkFeedDetailSlice";
 import allChatsSlice from "@/store/slices/allChatsSlice";
+import messagesSlice from "@/store/slices/messagesSlice";
 
 const rootReducer = combineReducers({
   [appApi.reducerPath]: appApi.reducer,
@@ -11,5 +12,6 @@ const rootReducer = combineReducers({
   upworkFeed: upworkFeedSlice,
   upworkFeedDetail: upworkFeedDetailSlice,
   allChats: allChatsSlice,
+  chat: messagesSlice,
 });
 export default rootReducer;

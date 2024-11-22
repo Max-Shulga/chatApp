@@ -20,6 +20,9 @@ import { IChatItem } from "@/common/interfaces/dto/chat/dto/ichat-item";
 import { ICreateChatRequest } from "@/common/interfaces/dto/chat/dto/icreate-chat-request.interface";
 import { IDeleteChatRequest } from "@/common/interfaces/dto/chat/dto/ichat-delete-request.interface";
 import { IEditChatRequest } from "@/common/interfaces/dto/chat/dto/iedit-chat-request.interface";
+import { IGetMessagesByChatId } from "@/common/interfaces/dto/message/iget-messages-by-chat-id.interface";
+import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
+import { ISendMessageRequest } from "@/common/interfaces/dto/message/isend-message-request.interface";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: api.baseURL,
@@ -31,6 +34,7 @@ const baseQuery = fetchBaseQuery({
     return headers;
   },
 });
+
 const baseQueryWithReAuth: BaseQueryFn<
   string | FetchArgs,
   unknown,
@@ -182,6 +186,26 @@ export const appApi = createApi({
       }),
       invalidatesTags: ["Chats"],
     }),
+
+    getMessages: builder.query<IMessageDTO[], IGetMessagesByChatId>({
+      query: (params) => ({
+        url: `/messages/${params.chatId}`,
+        method: "GET",
+      }),
+      transformResponse: (response: { data: IMessageDTO[] }) => {
+        return response.data;
+      },
+    }),
+    sendMessage: builder.mutation<IMessageDTO, ISendMessageRequest>({
+      query: ({ content, chatId }) => ({
+        url: `/messages/send-message`,
+        method: "POST",
+        body: {
+          chatId,
+          content,
+        },
+      }),
+    }),
   }),
 });
 
@@ -194,4 +218,6 @@ export const {
   useAddChatMutation,
   useDeleteChatMutation,
   useEditChatMutation,
+  useGetMessagesQuery,
+  useSendMessageMutation,
 } = appApi;

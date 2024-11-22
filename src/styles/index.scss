@@ -1,6 +1,7 @@
 @use "data-picker.scss";
 @use "react-select.scss";
 @use "normalize.css";
+@use 'scrollbar';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,11 +60,4 @@ button:hover{
    transition: all 0.3s ease;
  }
 
-.hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}

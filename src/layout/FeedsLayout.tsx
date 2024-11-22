@@ -19,12 +19,11 @@ function FeedsLayout(): ReactElement {
   }, [user]);
 
   return (
-    <section className="w-full">
+    <section className="w-full h-full">
       <Sidebar isOpen={isSidebarOpen} />
       <div
-        className={`transition-all duration-300 ${
-          isSidebarOpen ? "ml-[280px] lg:ml-[320px]" : "ml-0"
-        }`}
+        className={`transition-all duration-300 h-[calc(100vh-82px)] hide-scrollbar 
+         ${isSidebarOpen ? "ml-[280px] lg:ml-[320px]" : "ml-0"}`}
       >
         <Header
           isOpen={isSidebarOpen}
