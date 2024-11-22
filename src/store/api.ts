@@ -16,6 +16,10 @@ import IGetAllUpworkFeedCombineRequest from "@/common/interfaces/dto/upwork-feed
 import { IGetOneUpworkFeedItem } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-one-item-dto-ts";
 import { IUpworkFeedDetailItemDTO } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-detail-item.dto";
 import { IUpdateUpworkFeedDtoWithFeedId } from "@/common/interfaces/dto/upwork-feed/iupdate-upwork-feed.dto";
+import { IChatItem } from "@/common/interfaces/dto/chat/dto/ichat-item";
+import { ICreateChatRequest } from "@/common/interfaces/dto/chat/dto/icreate-chat-request.interface";
+import { IDeleteChatRequest } from "@/common/interfaces/dto/chat/dto/ichat-delete-request.interface";
+import { IEditChatRequest } from "@/common/interfaces/dto/chat/dto/iedit-chat-request.interface";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: api.baseURL,
@@ -71,6 +75,7 @@ const baseQueryWithReAuth: BaseQueryFn<
 
 export const appApi = createApi({
   baseQuery: baseQueryWithReAuth,
+  tagTypes: ["Chats"],
   endpoints: (builder) => ({
     signIn: builder.mutation<IAccountDTO, ILoginRequestDTO>({
       query: (credentials) => ({
@@ -140,6 +145,43 @@ export const appApi = createApi({
         },
       }),
     }),
+    getChats: builder.query<IChatItem[], void>({
+      query: () => ({
+        url: "/chats",
+        method: "GET",
+      }),
+      transformResponse: (response: { data: IChatItem[] }) => {
+        return response.data;
+      },
+      providesTags: ["Chats"],
+    }),
+    addChat: builder.mutation<void, ICreateChatRequest>({
+      query: (params) => ({
+        url: "/chats",
+        method: "POST",
+        body: {
+          name: params.name,
+        },
+      }),
+      invalidatesTags: ["Chats"],
+    }),
+    deleteChat: builder.mutation<void, IDeleteChatRequest>({
+      query: (params) => ({
+        url: `/chats/${params.chatId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Chats"],
+    }),
+    editChat: builder.mutation<void, IEditChatRequest>({
+      query: (params) => ({
+        url: `/chats/${params.chatId}`,
+        method: "PUT",
+        body: {
+          name: params.name,
+        },
+      }),
+      invalidatesTags: ["Chats"],
+    }),
   }),
 });
 
@@ -148,5 +190,8 @@ export const {
   useWhoAmIQuery,
   useUpworkFeedsQuery,
   useUpworkFeedDetailQuery,
-  useUpdateUpworkFeedMutation,
+  useGetChatsQuery,
+  useAddChatMutation,
+  useDeleteChatMutation,
+  useEditChatMutation,
 } = appApi;

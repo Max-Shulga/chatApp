@@ -12,13 +12,10 @@ function DislikeFeedbackPopup({
   onClose,
   className,
 }: DislikeFeedbackPopupProps): ReactElement {
-  const { register, handleSubmit, reset, getValues } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     mode: "onSubmit",
   });
   const submitForm = async (): Promise<void> => {
-    const feedBackData = {
-      message: getValues().message,
-    };
     onClose();
   };
   const handleClose = (): void => {
@@ -47,7 +44,7 @@ function DislikeFeedbackPopup({
               disableUnderline: true,
             },
           }}
-          {...register("email", {
+          {...register("comment", {
             required: {
               value: true,
               message: "This field is required",
