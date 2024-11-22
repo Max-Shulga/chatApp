@@ -21,6 +21,7 @@ const config = {
         "gray-800": "#414752",
       },
       backgroundColor: {
+        modalBg: "rgba(0,0,0,0.4)",
         gray: {
           100: "#F6F7F8",
         },

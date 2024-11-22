@@ -85,7 +85,7 @@ function NewChatPopup({
             <Button type="button" className="flex-1" onClick={handleClose}>
               <h5 className="font-normal">cancel</h5>
             </Button>
-            <SecondaryButton className="flex-1">
+            <SecondaryButton className="flex-1" type="submit">
               <h5 className="font-normal">Save</h5>
             </SecondaryButton>
           </div>
