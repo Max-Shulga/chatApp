@@ -4,7 +4,6 @@ import SelectedIcon from "@/assets/icons/selected.svg?react";
 import NotSelectedIcon from "@/assets/icons/notSelected.svg?react";
 import MatchedInfoBlock from "@/views/upworkFeedDetail/matchedBlogs/MatchedInfoBlock";
 import ToggleButton from "@/components/ToggleButton";
-import useScrollToExpanded from "@/hooks/useScrollToExpanded";
 
 type MatchedBlogsItemProps = {
   matchedCase: IUpworkFeedMatchEntityDto;
@@ -14,11 +13,14 @@ function MatchedBlogsItem({
 }: MatchedBlogsItemProps): ReactElement {
   const { selected, title, infoBlock, content } = matchedCase;
   const [isSelected, setIsSelected] = useState(selected);
-  const { isExpanded, toggleExpand, elementRef } =
-    useScrollToExpanded<HTMLDivElement>();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = (): void => {
+    setIsExpanded((prev) => !prev);
+  };
 
   return (
-    <div className="flex flex-col gap-5 pb-2 pt-3 w-full" ref={elementRef}>
+    <div className="flex flex-col gap-5 pb-2 pt-3 w-full">
       <div className="flex flex-row justify-between w-full">
         <ToggleButton onClick={toggleExpand} isExpanded={isExpanded}>
           {title}
@@ -33,8 +35,8 @@ function MatchedBlogsItem({
         </div>
       </div>
       <p
-        className={`w-11/12 transition-all duration-300 overflow-hidden mt-2  ${
-          isExpanded ? "inline-block" : "hidden"
+        className={`w-11/12 transition-all duration-500 overflow-hidden mt-2  ${
+          isExpanded ? "max-h-screen" : "max-h-0"
         }`}
       >
         {content}
