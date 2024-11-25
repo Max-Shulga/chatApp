@@ -4,8 +4,8 @@ import StyledContainer from "@/components/StyledContainer";
 import { Button, TextField } from "@mui/material";
 import SecondaryButton from "@/components/SecondaryButton";
 import useKeyboard from "@/hooks/useKeyboard";
-import { useAddChatMutation, useEditChatMutation } from "@/store/api";
 import useClickOutside from "@/hooks/useClickOutside";
+import { useAddChatMutation, useEditChatMutation } from "@/store/chatsApi";
 
 type DislikeFeedbackPopupProps = {
   onClose: () => void;

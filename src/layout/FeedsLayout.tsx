@@ -2,8 +2,8 @@ import { ReactElement, useEffect, useState } from "react";
 import Header from "@/layout/Header";
 import { Outlet } from "react-router";
 import Sidebar from "@/views/Sidebar/Sidebar";
-import { useWhoAmIQuery } from "@/store/api";
 import { useAppSelector } from "@/store/hooks";
+import { useWhoAmIQuery } from "@/store/authApi";
 
 function FeedsLayout(): ReactElement {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);

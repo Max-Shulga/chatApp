@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import Portal from "@/components/Portal";
-import { useDeleteChatMutation } from "@/store/api";
 import StyledContainer from "@/components/StyledContainer";
 import useKeyboard from "@/hooks/useKeyboard";
 import useClickOutside from "@/hooks/useClickOutside";
@@ -8,6 +7,7 @@ import ThemedIcon from "@/components/ThemedIcon";
 import CloseIcon from "@/assets/icons/close.svg?react";
 import { Button } from "@mui/material";
 import SecondaryButton from "@/components/SecondaryButton";
+import { useDeleteChatMutation } from "@/store/chatsApi";
 
 type DeleteChatModalProps = {
   chatId: number;

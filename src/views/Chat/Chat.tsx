@@ -1,14 +1,17 @@
 import { ReactElement, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useGetMessagesQuery, useSendMessageMutation } from "@/store/api";
 import { useAppSelector } from "@/store/hooks";
 import Message from "@/views/Chat/Message";
 import { InputAdornment, TextField } from "@mui/material";
 import SendIconButton from "@/components/SendIconButton";
 import { useForm } from "react-hook-form";
-import { socket } from "@/views/Chat/socket";
+import { socket } from "@/store/socket";
 import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
 import createMessage from "@/utils/chat/createMessagePreset";
+import {
+  useGetMessagesQuery,
+  useSendMessageMutation,
+} from "@/store/messagesApi";
 
 function Chat(): ReactElement | null {
   const { id: chatId } = useParams();

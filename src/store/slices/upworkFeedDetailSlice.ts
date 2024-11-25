@@ -1,6 +1,6 @@
 import { IUpworkFeedDetailItemDTO } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-detail-item.dto";
 import { createSlice } from "@reduxjs/toolkit";
-import { appApi } from "@/store/api";
+import { upworkApi } from "@/store/upworkApi";
 
 const initialState: IUpworkFeedDetailItemDTO = {
   id: undefined,
@@ -24,7 +24,7 @@ const upworkFeedDetailSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      appApi.endpoints.upworkFeedDetail.matchFulfilled,
+      upworkApi.endpoints.upworkFeedDetail.matchFulfilled,
       (state, { payload }) => {
         return {
           ...state,

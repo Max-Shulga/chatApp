@@ -1,6 +1,6 @@
 import { IUpworkResponseListFeedsDto } from "@/common/interfaces/dto/upwork-feed/iupwork-response-list-feeds.dto";
 import { createSlice } from "@reduxjs/toolkit";
-import { appApi } from "@/store/api";
+import { upworkApi } from "@/store/upworkApi";
 
 const initialState: IUpworkResponseListFeedsDto = {
   items: {
@@ -20,7 +20,7 @@ const upworkFeedSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      appApi.endpoints.upworkFeeds.matchFulfilled,
+      upworkApi.endpoints.upworkFeeds.matchFulfilled,
       (state, { payload }) => {
         state.items = payload.items;
         state.keywordsOptions = payload.keywordsOptions;

@@ -1,6 +1,7 @@
 import { Manager } from "socket.io-client";
+import api from "@/common/api";
 
-const manager = new Manager(`https://trainee-api.chat.abcloudz.com`, {
+const manager = new Manager(`${api.baseURL}`, {
   reconnection: true,
   reconnectionDelay: 1000,
   reconnectionDelayMax: 3000,

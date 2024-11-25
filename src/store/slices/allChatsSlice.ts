@@ -1,6 +1,6 @@
 import { IChatItem } from "@/common/interfaces/dto/chat/dto/ichat-item";
 import { createSlice } from "@reduxjs/toolkit";
-import { appApi } from "@/store/api";
+import { chatsApi } from "@/store/chatsApi";
 
 type InitialStateType = {
   chats: IChatItem[];
@@ -15,7 +15,7 @@ const allChatsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      appApi.endpoints.getChats.matchFulfilled,
+      chatsApi.endpoints.getChats.matchFulfilled,
       (state, { payload }) => {
         state.chats = payload;
       },

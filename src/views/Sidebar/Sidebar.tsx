@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 import SecondaryStyledThemeWrapper from "@/components/SecondaryStyledThemeWrapper";
-import { useGetChatsQuery } from "@/store/api";
 import { useAppSelector } from "@/store/hooks";
 import ChatListItem from "@/views/Sidebar/ChatList/ChatListItem";
 import AsideFooter from "@/views/Sidebar/AsideFooter";
 import NewChatButton from "@/views/Sidebar/NewChatButton";
+import { useGetChatsQuery } from "@/store/chatsApi";
 
 type SidebarProps = {
   isOpen: boolean;

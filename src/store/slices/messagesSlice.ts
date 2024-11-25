@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { appApi } from "@/store/api";
 import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
+import { messagesApi } from "@/store/messagesApi";
 
 type initialStateType = {
   messages: IMessageDTO[];
@@ -16,7 +16,7 @@ const chatSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addMatcher(
-      appApi.endpoints.getMessages.matchFulfilled,
+      messagesApi.endpoints.getMessages.matchFulfilled,
       (state, { payload }) => {
         state.messages = payload;
       },
