@@ -10,14 +10,15 @@ import { chatsApi } from "@/store/chatsApi";
 import { messagesApi } from "@/store/messagesApi";
 
 const rootReducer = combineReducers({
+  [authApi.reducerPath]: authApi.reducer,
+  [upworkApi.reducerPath]: upworkApi.reducer,
+  [chatsApi.reducerPath]: chatsApi.reducer,
+  [messagesApi.reducerPath]: messagesApi.reducer,
   user: userSlice,
   upworkFeed: upworkFeedSlice,
   upworkFeedDetail: upworkFeedDetailSlice,
   allChats: allChatsSlice,
   chat: messagesSlice,
-  [authApi.reducerPath]: authApi.reducer,
-  [upworkApi.reducerPath]: upworkApi.reducer,
-  [chatsApi.reducerPath]: chatsApi.reducer,
-  [messagesApi.reducerPath]: messagesApi.reducer,
 });
+
 export default rootReducer;
