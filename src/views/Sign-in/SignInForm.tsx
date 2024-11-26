@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 import EyeIcon from "@/assets/icons/eye.svg?react";
 import EyeSlashIcon from "@/assets/icons/eye-slash.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
-import { useSignInMutation } from "@/store/authApi";
+import { useSignInMutation } from "@/store/api/authApi";
 
 type SignInFormProps = {
   setErrorText: (value: string) => void;

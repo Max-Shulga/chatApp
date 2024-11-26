@@ -4,10 +4,10 @@ import upworkFeedSlice from "@/store/slices/upworkFeedSlice";
 import upworkFeedDetailSlice from "@/store/slices/upworkFeedDetailSlice";
 import allChatsSlice from "@/store/slices/allChatsSlice";
 import messagesSlice from "@/store/slices/messagesSlice";
-import { authApi } from "@/store/authApi";
-import { upworkApi } from "@/store/upworkApi";
-import { chatsApi } from "@/store/chatsApi";
-import { messagesApi } from "@/store/messagesApi";
+import { authApi } from "@/store/api/authApi";
+import { upworkApi } from "@/store/api/upworkApi";
+import { chatsApi } from "@/store/api/chatsApi";
+import { messagesApi } from "@/store/api/messagesApi";
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,

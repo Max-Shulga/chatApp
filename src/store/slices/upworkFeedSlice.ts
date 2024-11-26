@@ -1,6 +1,6 @@
 import { IUpworkResponseListFeedsDto } from "@/common/interfaces/dto/upwork-feed/iupwork-response-list-feeds.dto";
 import { createSlice } from "@reduxjs/toolkit";
-import { upworkApi } from "@/store/upworkApi";
+import { upworkApi } from "@/store/api/upworkApi";
 
 const initialState: IUpworkResponseListFeedsDto = {
   items: {

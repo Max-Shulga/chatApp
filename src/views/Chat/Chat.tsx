@@ -8,7 +8,7 @@ import createMessage from "@/utils/chat/createMessagePreset";
 import {
   useGetMessagesQuery,
   useSendMessageMutation,
-} from "@/store/messagesApi";
+} from "@/store/api/messagesApi";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   addMessage,

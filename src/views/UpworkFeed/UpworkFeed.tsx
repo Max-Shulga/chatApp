@@ -2,7 +2,7 @@ import { ReactElement, useEffect } from "react";
 import RSSRefreshBar from "@/views/UpworkFeed/RSSRefreshBar/RSSRefreshBar";
 import UpworkFeedTable from "@/views/UpworkFeed/UpworkFeedTable/UpworkFeedTable";
 import useSearchParameters from "@/hooks/useSearchParameters";
-import { useUpworkFeedsQuery } from "@/store/upworkApi";
+import { useUpworkFeedsQuery } from "@/store/api/upworkApi";
 
 function UpworkFeed(): ReactElement {
   const { pageSize, pageNumber, searchParameters, sortDirection } =

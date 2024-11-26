@@ -7,7 +7,7 @@ import ThemedIcon from "@/components/ThemedIcon";
 import CloseIcon from "@/assets/icons/close.svg?react";
 import { Button } from "@mui/material";
 import SecondaryButton from "@/components/SecondaryButton";
-import { useDeleteChatMutation } from "@/store/chatsApi";
+import { useDeleteChatMutation } from "@/store/api/chatsApi";
 
 type DeleteChatModalProps = {
   chatId: number;

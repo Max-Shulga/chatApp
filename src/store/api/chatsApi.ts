@@ -1,4 +1,4 @@
-import baseQueryWithReAuth from "@/store/baseQueryWithReAuth";
+import baseQueryWithReAuth from "@/store/api/baseQueryWithReAuth";
 import { IChatItem } from "@/common/interfaces/dto/chat/dto/ichat-item";
 import { ICreateChatRequest } from "@/common/interfaces/dto/chat/dto/icreate-chat-request.interface";
 import { IDeleteChatRequest } from "@/common/interfaces/dto/chat/dto/ichat-delete-request.interface";

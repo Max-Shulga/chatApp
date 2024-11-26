@@ -1,6 +1,6 @@
 import { IAccountDTO } from "@/common/interfaces/dto/account/iaccount.interface";
 import { createSlice } from "@reduxjs/toolkit";
-import { authApi } from "@/store/authApi";
+import { authApi } from "@/store/api/authApi";
 
 type UserState = {
   user: IAccountDTO | null;

@@ -1,6 +1,6 @@
 import { IChatItem } from "@/common/interfaces/dto/chat/dto/ichat-item";
 import { createSlice } from "@reduxjs/toolkit";
-import { chatsApi } from "@/store/chatsApi";
+import { chatsApi } from "@/store/api/chatsApi";
 
 type InitialStateType = {
   chats: IChatItem[];

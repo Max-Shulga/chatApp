@@ -3,7 +3,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import { IUpworkResponseListFeedsDto } from "@/common/interfaces/dto/upwork-feed/iupwork-response-list-feeds.dto";
 // eslint-disable-next-line max-len
 import IGetAllUpworkFeedCombineRequest from "@/common/interfaces/dto/upwork-feed/iget-all-upwork-feed-request-combine.interface";
-import baseQueryWithReAuth from "@/store/baseQueryWithReAuth";
+import baseQueryWithReAuth from "@/store/api/baseQueryWithReAuth";
 // eslint-disable-next-line max-len
 import { IUpworkFeedDetailItemDTO } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-detail-item.dto";
 // eslint-disable-next-line max-len

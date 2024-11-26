@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
-import { messagesApi } from "@/store/messagesApi";
+import { messagesApi } from "@/store/api/messagesApi";
 
 type initialStateType = {
   messages: IMessageDTO[];

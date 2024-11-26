@@ -1,4 +1,4 @@
-import baseQueryWithReAuth from "@/store/baseQueryWithReAuth";
+import baseQueryWithReAuth from "@/store/api/baseQueryWithReAuth";
 import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
 import { ISendMessageRequest } from "@/common/interfaces/dto/message/isend-message-request.interface";
 import { createApi } from "@reduxjs/toolkit/query/react";

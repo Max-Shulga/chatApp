@@ -1,6 +1,6 @@
 import { IUpworkFeedDetailItemDTO } from "@/common/interfaces/dto/upwork-feed/iupwork-feed-detail-item.dto";
 import { createSlice } from "@reduxjs/toolkit";
-import { upworkApi } from "@/store/upworkApi";
+import { upworkApi } from "@/store/api/upworkApi";
 
 const initialState: IUpworkFeedDetailItemDTO = {
   id: undefined,

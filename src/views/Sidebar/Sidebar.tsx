@@ -4,7 +4,7 @@ import { useAppSelector } from "@/store/hooks";
 import ChatListItem from "@/views/Sidebar/ChatList/ChatListItem";
 import AsideFooter from "@/views/Sidebar/AsideFooter";
 import NewChatButton from "@/views/Sidebar/NewChatButton";
-import { useGetChatsQuery } from "@/store/chatsApi";
+import { useGetChatsQuery } from "@/store/api/chatsApi";
 
 type SidebarProps = {
   isOpen: boolean;

@@ -9,7 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@mui/material";
 import ArrowIcon from "@/assets/icons/arrow.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
-import { useUpworkFeedDetailQuery } from "@/store/upworkApi";
+import { useUpworkFeedDetailQuery } from "@/store/api/upworkApi";
 
 function FeedPage(): ReactElement {
   const { id } = useParams();
