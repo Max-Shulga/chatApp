@@ -11,7 +11,7 @@ type HeaderProps = {
 };
 function Header({ isOpen, onClick }: HeaderProps): ReactElement {
   return (
-    <header className="flex flex-row justify-between px-5 py-6">
+    <header className="flex flex-row justify-between px-5 py-6 flex-shrink-0">
       <IconButton onClick={onClick}>
         <ThemedIcon icon={isOpen ? <HideSideBarIcon /> : <MenuIcon />} />
       </IconButton>

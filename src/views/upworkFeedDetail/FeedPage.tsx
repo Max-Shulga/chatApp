@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { useParams } from "react-router";
-import { useUpworkFeedDetailQuery } from "@/store/api";
 import { useAppSelector } from "@/store/hooks";
 import ProjectInfo from "@/views/upworkFeedDetail/ProjectInfo";
 import KeywordsInfo from "@/views/upworkFeedDetail/keywordsInfo/KeywordsInfo";
@@ -10,6 +9,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { Button } from "@mui/material";
 import ArrowIcon from "@/assets/icons/arrow.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
+import { useUpworkFeedDetailQuery } from "@/store/api/upworkApi";
 
 function FeedPage(): ReactElement {
   const { id } = useParams();

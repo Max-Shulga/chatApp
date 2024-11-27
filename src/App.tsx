@@ -7,6 +7,7 @@ import SignIn from "@/views/Sign-in/SignIn";
 import UpworkFeed from "@/views/UpworkFeed/UpworkFeed";
 import FeedsLayout from "@/layout/FeedsLayout";
 import FeedPage from "@/views/upworkFeedDetail/FeedPage";
+import Chat from "@/views/Chat/Chat";
 
 function App(): ReactElement {
   const { theme } = useThemeContext();
@@ -23,6 +24,7 @@ function App(): ReactElement {
               path={RouteNames.UPWORK_FEED_DETAIL}
               element={<FeedPage />}
             />
+            <Route path={RouteNames.CHAT} element={<Chat />} />
           </Route>
           <Route
             path="*"

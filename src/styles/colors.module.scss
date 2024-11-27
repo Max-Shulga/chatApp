@@ -1,5 +1,6 @@
 $light-background-default: #F6F7F8;
 $light-background-second: #FFFFFF;
+$light-background-answer-background: #EBECF0;
 $light-text-primary: #252733;
 $light-text-secondary:#0E0E0F;
 $light-score-red: #FAC8D0;
@@ -23,6 +24,7 @@ $light-success-icon-fill: #187A18;
 
 $dark-background-default: #181A1F;
 $dark-background-second: #131314;
+$dark-background-answer-background: #252733;
 $dark-text-primary: #EBECF0;
 $dark-text-secondary:  #FFFFFF;
 $dark-score-red: #7A2C39;
@@ -61,6 +63,7 @@ $blue-box-shadow:#0F62FE66;
 :export {
   lightBackgroundDefault: $light-background-default;
   lightBackgroundSecond: $light-background-second;
+  lightBackgroundAnswerBackground:$light-background-answer-background;
   lightTextPrimary: $light-text-primary;
   lightTextSecondary: $light-text-secondary;
   lightScoreRed: $light-score-red;
@@ -84,6 +87,7 @@ $blue-box-shadow:#0F62FE66;
 
   darkBackgroundDefault: $dark-background-default;
   darkBackgroundSecond:$dark-background-second;
+  darkBackgroundAnswerBackground: $dark-background-answer-background;
   darkTextPrimary: $dark-text-primary;
   darkTextSecondary: $dark-text-secondary;
   darkScoreRed: $dark-score-red;

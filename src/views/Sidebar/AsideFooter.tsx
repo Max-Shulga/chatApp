@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, ReactNode, useState } from "react";
 import RouteNames from "@/routes/routes-names";
 import RssIcon from "@/assets/icons/rss.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
@@ -8,6 +8,19 @@ import UserIcon from "@/assets/icons/user.svg?react";
 import { Link } from "react-router-dom";
 import IconArrow from "@/assets/icons/arrowDown.svg?react";
 import UserMenuPopup from "@/views/Sidebar/UserMenuPopup";
+import { Box, styled } from "@mui/material";
+import colors from "@/styles/colors.module.scss";
+
+type CustomBoxProps = {
+  children: ReactNode;
+  className?: string;
+};
+const CustomBox = styled(Box)<CustomBoxProps>(({ theme }) => ({
+  borderColor:
+    theme.palette.mode === "light"
+      ? colors.lightBackgroundAnswerBackground
+      : colors.darkBackgroundAnswerBackground,
+}));
 
 function AsideFooter(): ReactElement {
   const { user } = useAppSelector((state) => state.user);
@@ -16,7 +29,7 @@ function AsideFooter(): ReactElement {
     setIsUserPopupVisible((prevState) => !prevState);
   };
   return (
-    <section className="py-3 border-t px-4 relative ">
+    <CustomBox className="py-3 border-t border-gray-900 px-4 relative ">
       <HoverEffectBox>
         <Link
           to={RouteNames.UPWORK_FEED}
@@ -45,7 +58,7 @@ function AsideFooter(): ReactElement {
           onClose={() => setIsUserPopupVisible(false)}
         />
       )}
-    </section>
+    </CustomBox>
   );
 }
 export default AsideFooter;

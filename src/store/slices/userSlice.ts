@@ -1,6 +1,6 @@
 import { IAccountDTO } from "@/common/interfaces/dto/account/iaccount.interface";
 import { createSlice } from "@reduxjs/toolkit";
-import { appApi } from "@/store/api";
+import { authApi } from "@/store/api/authApi";
 
 type UserState = {
   user: IAccountDTO | null;
@@ -17,21 +17,21 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addMatcher(appApi.endpoints.signIn.matchPending, (state) => {
+    builder.addMatcher(authApi.endpoints.signIn.matchPending, (state) => {
       state.isLoading = true;
     });
     builder.addMatcher(
-      appApi.endpoints.signIn.matchFulfilled,
+      authApi.endpoints.signIn.matchFulfilled,
       (state, { payload }) => {
         state.user = payload;
         state.isLoading = false;
       },
     );
-    builder.addMatcher(appApi.endpoints.whoAmI.matchPending, (state) => {
+    builder.addMatcher(authApi.endpoints.whoAmI.matchPending, (state) => {
       state.isLoading = true;
     });
     builder.addMatcher(
-      appApi.endpoints.whoAmI.matchFulfilled,
+      authApi.endpoints.whoAmI.matchFulfilled,
       (state, { payload }) => {
         state.user = payload;
         state.isLoading = false;
