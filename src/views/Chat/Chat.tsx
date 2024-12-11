@@ -14,17 +14,21 @@ import {
   addMessage,
   setMessageReceivedStatus,
 } from "@/store/slices/messagesSlice";
+import useChatSocket from "@/hooks/useChatSocket";
+import { IMessageDTO } from "@/common/interfaces/dto/message/imessage-dto";
 
 function Chat(): ReactElement | null {
   const { id: chatId } = useParams();
   if (!chatId) return null;
 
-  const accessToken = localStorage.getItem("token");
+  const accessToken = localStorage.getItem("token") || "";
   const { isLoading } = useGetMessagesQuery(
     { chatId: +chatId, accessToken: accessToken || "" },
     { refetchOnMountOrArgChange: true },
   );
+
   const [sendMessage] = useSendMessageMutation();
+
   const dispatch = useAppDispatch();
   const { messages, isMessageReceived } = useAppSelector((state) => state.chat);
   const { register, handleSubmit, reset, watch, getValues } = useForm({
@@ -32,6 +36,20 @@ function Chat(): ReactElement | null {
   });
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const handleChangeMessages = (data: IMessageDTO): void => {
+    dispatch(addMessage(data));
+    dispatch(setMessageReceivedStatus(false));
+  };
+
+  useChatSocket({
+    chatId: +chatId,
+    accessToken,
+    onMessageReceived: (data) => {
+      handleChangeMessages(data);
+      setMessageReceivedStatus(false);
+    },
+  });
 
   const scrollToBottom = (): void => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

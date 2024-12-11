@@ -8,9 +8,10 @@ import {
   fetchBaseQuery,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
+import RouteVersion from "@/routes/routes-version-enum";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `${api.baseURL}/api/v1/`,
+  baseUrl: `${api.baseURL}/${RouteVersion.V1}/`,
   prepareHeaders: async (headers) => {
     const token = localStorage.getItem("token");
     if (token) {
