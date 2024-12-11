@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from "react";
+import React, { ReactElement, useEffect, useRef, useState } from "react";
 import {
   CellContext,
   flexRender,
@@ -18,6 +18,7 @@ import KeywordSelector from "@/views/UpworkFeed/UpworkFeedTable/KeywordSelector"
 import ScoreSelector from "@/views/UpworkFeed/UpworkFeedTable/ScoreSelector";
 import TableFooter from "@/views/UpworkFeed/UpworkFeedTable/TableFooter/TableFooter";
 import TableBodySkeleton from "@/skeleton/TableBodySkeleton";
+import { useNavigate } from "react-router";
 
 const columns = [
   {
@@ -25,7 +26,11 @@ const columns = [
     accessorKey: "title",
     cell: ({ cell }: CellContext<IUpworkFeedItemDTO, string>): ReactElement => {
       const row = cell.row.original;
-      return <ThemedLink to={`${row.id}`}>{cell.getValue()}</ThemedLink>;
+      return (
+        <ThemedLink to={`${row.url}`} target="_blank">
+          {cell.getValue()}
+        </ThemedLink>
+      );
     },
   },
   {
@@ -80,7 +85,7 @@ function UpworkFeedTable({
   const {
     items: { items: data },
   } = useAppSelector((state) => state.upworkFeed);
-
+  const navigate = useNavigate();
   const { getHeaderGroups, getRowModel } = useReactTable({
     data,
     columns,
@@ -103,6 +108,17 @@ function UpworkFeedTable({
       setHeaderKey((prev) => prev + 1);
     }
   }, [isLoaded]);
+
+  function handleRowClick(
+    event: React.MouseEvent<HTMLTableRowElement>,
+    rowId: string,
+  ): void {
+    const target = event.target as HTMLElement;
+
+    if (target.tagName !== "A") {
+      navigate(`${rowId}`);
+    }
+  }
 
   return (
     <div className="w-full mt-10 px-8 overflow-hidden h-4/5">
@@ -142,8 +158,9 @@ function UpworkFeedTable({
           {isFetching && <TableBodySkeleton />}
           {getRowModel().rows.map((row) => (
             <tr
+              className="grid grid-cols-[3fr_2fr_3fr_2fr_1fr_1fr] px-2 cursor-pointer"
               key={row.id}
-              className="grid grid-cols-[3fr_2fr_3fr_2fr_1fr_1fr] px-2"
+              onClick={(event) => handleRowClick(event, row.original.id || "")}
             >
               {row.getVisibleCells().map((cell, index) => (
                 <td

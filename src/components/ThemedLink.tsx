@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 import { ReactElement, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, LinkProps } from "react-router-dom";
 import colors from "@/styles/colors.module.scss";
 
 type CustomBoxProps = {
@@ -14,19 +14,17 @@ const CustomBox = styled(Link)<CustomBoxProps>(({ theme }) => ({
       : colors.darkBorderSecondary,
 }));
 
-type ThemedLinkProps = {
-  children: ReactNode;
+type ThemedLinkProps = LinkProps & {
   className?: string;
-  to: string;
 };
 
 function ThemedLink({
   children,
   className = "",
-  to,
+  ...rest
 }: ThemedLinkProps): ReactElement {
   return (
-    <CustomBox to={to} className={className}>
+    <CustomBox className={className} {...rest}>
       {children}
     </CustomBox>
   );
