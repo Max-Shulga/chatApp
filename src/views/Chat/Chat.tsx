@@ -9,7 +9,10 @@ import {
   useGetMessagesQuery,
   useSendMessageMutation,
 } from "@/store/api/messagesApi";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../UTtest/dating-app/src/store/hooks";
 import {
   addMessage,
   setMessageReceivedStatus,

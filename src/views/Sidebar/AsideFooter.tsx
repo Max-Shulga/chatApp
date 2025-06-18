@@ -1,20 +1,21 @@
-import { ReactElement, ReactNode, useState } from "react";
+import {ReactElement, ReactNode, useState} from "react";
 import RouteNames from "@/routes/routes-names";
 import RssIcon from "@/assets/icons/rss.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
 import HoverEffectBox from "@/components/HoverEffectBox";
-import { useAppSelector } from "@/store/hooks";
 import UserIcon from "@/assets/icons/user.svg?react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import IconArrow from "@/assets/icons/arrowDown.svg?react";
 import UserMenuPopup from "@/views/Sidebar/UserMenuPopup";
-import { Box, styled } from "@mui/material";
+import {Box, styled} from "@mui/material";
 import colors from "@/styles/colors.module.scss";
+import {userStore} from "@/store/sockets/user.store";
 
 type CustomBoxProps = {
   children: ReactNode;
   className?: string;
 };
+
 const CustomBox = styled(Box)<CustomBoxProps>(({ theme }) => ({
   borderColor:
     theme.palette.mode === "light"
@@ -23,11 +24,15 @@ const CustomBox = styled(Box)<CustomBoxProps>(({ theme }) => ({
 }));
 
 function AsideFooter(): ReactElement {
-  const { user } = useAppSelector((state) => state.user);
   const [isUserPopupVisible, setIsUserPopupVisible] = useState(false);
   const ToggleUserPopup = (): void => {
     setIsUserPopupVisible((prevState) => !prevState);
   };
+  const {user} = userStore.value
+  const firstName = user?.firstName ?? "username";
+
+
+
   return (
     <CustomBox className="py-3 border-t border-gray-900 px-4 relative ">
       <HoverEffectBox>
@@ -47,7 +52,7 @@ function AsideFooter(): ReactElement {
         >
           <div className="flex flex-row gap-3">
             <ThemedIcon icon={<UserIcon />} />
-            <p>{user?.firstName || "username"}</p>
+            <p>{firstName}</p>
           </div>
           <ThemedIcon icon={<IconArrow />} className="-rotate-90 mr-4" />
         </button>
