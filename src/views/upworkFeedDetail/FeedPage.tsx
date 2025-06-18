@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { useParams } from "react-router";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "../../../../UTtest/dating-app/src/store/hooks";
 import ProjectInfo from "@/views/upworkFeedDetail/ProjectInfo";
 import KeywordsInfo from "@/views/upworkFeedDetail/keywordsInfo/KeywordsInfo";
 import MatchedCases from "@/views/upworkFeedDetail/matchedCases/MatchedСases";

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import FeedItemContainer from "@/views/upworkFeedDetail/FeedItemContainer";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "../../../../../UTtest/dating-app/src/store/hooks";
 import MatchedBlogsItem from "@/views/upworkFeedDetail/matchedBlogs/MatchedBlogsItem";
 
 function MatchedBlogs(): ReactElement {

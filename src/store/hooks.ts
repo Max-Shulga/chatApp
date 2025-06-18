@@ -1,6 +1,6 @@
 import {TypedUseSelectorHook,useDispatch,useSelector} from 'react-redux'
-import {AppDispatch} from "@/store/store";
-import {RootState} from "@/store/types";
+import {AppDispatch} from "../../../../chatApp/src/store/store";
+import {RootState} from "../../../../chatApp/src/store/types";
 
 
 type DispatchFunc = () => AppDispatch;
