@@ -1,20 +1,22 @@
-import { ReactElement, useState } from "react";
-import { Field, Form, Formik } from "formik";
-import { Button, Input } from "@mui/material";
-import { ILoginRequestDTO } from "@/common/interfaces/dto/auth/iadmin-login-request.interface";
+import {ReactElement, useState} from "react";
+import {Field, Form, Formik} from "formik";
+import {Button, Input} from "@mui/material";
+import {ILoginRequestDTO} from "@/common/interfaces/dto/auth/iadmin-login-request.interface";
 import * as Yup from "yup";
 import RouteNames from "@/routes/routes-names";
-import { useNavigate } from "react-router";
+import {useNavigate} from "react-router";
 import EyeIcon from "@/assets/icons/eye.svg?react";
 import EyeSlashIcon from "@/assets/icons/eye-slash.svg?react";
 import ThemedIcon from "@/components/ThemedIcon";
-import { useSignInMutation } from "@/store/api/authApi";
+import {authStore} from "@/store/auth.store";
+import {getAuthenticated} from "@/service/auth.service";
+import {ILoginResponseDTO} from "@/common/interfaces/dto/auth/ilogin-response.interfaces";
 
 type SignInFormProps = {
   setErrorText: (value: string) => void;
 };
 function SignInForm({ setErrorText }: SignInFormProps): ReactElement {
-  const [signIn] = useSignInMutation();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const initialValues: ILoginRequestDTO = {
@@ -29,12 +31,23 @@ function SignInForm({ setErrorText }: SignInFormProps): ReactElement {
 
   const handleSubmit = async (values: ILoginRequestDTO): Promise<void> => {
     try {
-      const result = await signIn(values).unwrap();
-      if (result.firstName) {
-        navigate(RouteNames.HOME);
-      }
+      getAuthenticated(values).subscribe({
+        next:(result)=>{
+          if (result?.success){
+              const token = result.data as ILoginResponseDTO;
+              authStore.setAuth(token)
+
+            navigate(RouteNames.HOME);
+          }else {
+            setErrorText("Invalid login or password");
+          }
+        },
+        error: () => {
+          setErrorText("Invalid login or password");
+        },
+      })
     } catch {
-      setErrorText("invalid login or password");
+      setErrorText("Unexpected error");
     }
   };
 
