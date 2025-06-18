@@ -59,6 +59,8 @@ const baseQueryWithReAuth: BaseQueryFn<
       window.location.href = RoutesNames.SIGN_IN;
     }
   }
+
   return result;
 };
+
 export default baseQueryWithReAuth;

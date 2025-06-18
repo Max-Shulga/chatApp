@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import SecondaryStyledThemeWrapper from "@/components/SecondaryStyledThemeWrapper";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "../../../../UTtest/dating-app/src/store/hooks";
 import ChatListItem from "@/views/Sidebar/ChatList/ChatListItem";
 import AsideFooter from "@/views/Sidebar/AsideFooter";
 import NewChatButton from "@/views/Sidebar/NewChatButton";

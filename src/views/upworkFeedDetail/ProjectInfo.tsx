@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 import FeedItemContainer from "@/views/upworkFeedDetail/FeedItemContainer";
 import ScoreCell from "@/components/ScoreCell";
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "../../../../UTtest/dating-app/src/store/hooks";
 import formatDate from "@/utils/formatDate";
 import ToggleButton from "@/components/ToggleButton";
 
